@@ -1,0 +1,60 @@
+
+
+const staticpath = path.join(__dirname, './public');
+const parstialpath = path.join(__dirname,'./tamplate/view');
+const templateath = path.join(__dirname, './tempalate/parstial');
+
+
+app.user(express.static(staticpath));
+app.set("view","hbs");
+app.set("views",temaplatepath);
+hbs.registerpartial(partialpath);
+
+app.get('/register',(req,res)=>{
+	res.render('register');
+	res.sendFile(__dirname + '/public/resiyter.html')
+})
+
+app.post('/register',(req,res)=>{
+	try{
+		const password = body.req.password;
+		const cpassword = body.req.cpassword;
+
+		if(password===cpassword)
+		{
+		const studentregister = new Register{
+		name:body.req.name
+		}
+		const stureg = await studentregister.save();
+		{
+		res.render('indeex');
+		} else{
+		res.send('not register');
+		}
+		}
+	}catch{
+
+	}
+})
+
+
+
+
+app.use(express,bodyParser.urlencoded:({extended:true}))
+app.use(express,body parser.json());
+
+
+app.post('/login',async(req,res)=>{
+	
+}
+
+const email = body.req.email;
+const password = body.req.password;
+
+
+const useremail = await studentreg.findOne({email:email});
+
+if(useremail.password === password){
+	res.status(201).senFile(__dirname + '/public/index.html')
+	res.render('index');
+}
